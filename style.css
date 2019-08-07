@@ -1,0 +1,50 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-size: 22px;
+  line-height: 2.2em;
+  margin: 0px;
+  color: white;
+  background: #222;
+  /* image from https://unsplash.com/photos/Ef6iL87-vOA */
+  background-image: url("https://cdn.glitch.com/fe6c9f76-68a3-4a19-a559-b6ab9f0f0f76%2Fstars.jpg?v=1565214153570");
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#container {
+  /*
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  right: 3%;
+  transform: translateY(-50%);  
+  */
+  min-height: 99vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dream-line {
+  text-align: center;
+  transition: opacity 1s;
+}
+
+.yet-to-be-revealed {
+  opacity: 0;
+}
+
+/* on small screens */
+@media screen and (max-width: 400px) {
+  body {
+    font-size: 17px; /* smaller font */
+  }
+  #container {
+    min-height: 88vh; /* not quite as tall, to avoid autohiding URL bar */
+  }
+}

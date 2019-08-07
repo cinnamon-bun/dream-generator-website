@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dream</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/dream-generator-v0.1.1.js"></script>
+  </head>  
+  <body>
+
+    <div id="container">
+      <!-- dream lines will be inserted here -->
+    </div>
+
+    <script>
+      let secondsDelayPerLine = 0.05;  // 2 seconds is also nice
+      
+      let dreamLines = window.makeDream().split('\n');
+
+      let container = document.getElementById('container');
+      let hue = Math.floor(Math.random() * 360);
+      container.style.color = 'hsl(' + hue + ',100%,86%)';
+      let ii = 0;
+      for (let line of dreamLines) {
+        let elem = document.createElement('div');
+        elem.textContent = line;
+        elem.classList.add('dream-line');
+        elem.classList.add('yet-to-be-revealed');
+        container.appendChild(elem);
+        setTimeout(() => {
+          elem.classList.remove('yet-to-be-revealed');
+        }, 500 + 1000 * secondsDelayPerLine * ii);
+        ii += 1;
+      }
+    </script>
+    
+  </body>
+</html>
